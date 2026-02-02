@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 207 63% 10%;
+    --foreground: 0 0% 100%;
+    --card: 207 63% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 207 63% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 224 100% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 100% 89%;
+    --secondary-foreground: 207 63% 10%;
+    --muted: 207 40% 20%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 224 100% 59%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 207 40% 25%;
+    --input: 207 40% 25%;
+    --ring: 224 100% 59%;
+    --radius: 0.625rem;
+    
+    /* Custom brand colors */
+    --brand-dark: #061a2b;
+    --brand-blue: #2d62ff;
+    --brand-light-blue: #c8d7ff;
+    --brand-white: #ffffff;
+    --brand-gray: #f5f5f5;
+    
+    /* Animation easings */
+    --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-light-blue) 100%);
+  }
+  
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #0a2a4a 100%);
+  }
+  
+  .glass {
+    @apply backdrop-blur-xl;
+    background: rgba(6, 26, 43, 0.8);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(45, 98, 255, 0.4);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-gradient-shift {
+    animation: gradient-shift 15s linear infinite;
+    background-size: 200% 200%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(45, 98, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(45, 98, 255, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-light-blue);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(45, 98, 255, 0.3);
+  color: white;
+}
