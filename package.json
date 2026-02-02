@@ -74,6 +74,8 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
+    "build": "echo 'No build step required'"
   },
-  "homepage": "https://yourusername.github.io/buraq-travelhub"
+  "homepage": "https://shahirahmed1.github.io/buraq/"
 }
+
